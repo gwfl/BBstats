@@ -8,10 +8,37 @@ angular.module('starter', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+  // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+  // for form inputs)
+  //  if(window.cordova && window.cordova.plugins.Keyboard) {
+  //    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+  //  }
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
   });
+  
+function storageAvailable(type) {
+	try {
+		var storage = window[type],
+			x = '__storage_test__';
+		storage.setItem(x, x);
+		storage.removeItem(x);
+		return true;
+	}
+	catch(e) {
+		return false;
+	}
+}
+
+if (storageAvailable('sessionStorage')) {
+	// Yippee! We can use localStorage awesomeness
+	console.log('storage is avail');
+}
+else {
+	// Too bad, no localStorage for us
+	console.log('No storage');
+}
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
