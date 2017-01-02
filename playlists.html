@@ -3,8 +3,30 @@
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
+  <h2> </h2>
+    
+  <div class="row">  
+  <div class="col-40 text-center">Grizzlies: <br> <span class="button button-large button-dark"> 45 {{vGH.pp}}</span></div>
+  <div class="col-20"> </div>
+  <div class="col-40 text-center">Opponent: <br> <span class="button button-large button-calm"> 32 {{vGV.pp}}</span> </div>
+    </div>
+  <h2> </h2>
+    
+  <div class="row"> 
+  <div class="col-40 text-center"> 
+      <span class="label label-default">Track Opponent:</span></div>
+ <div class="col-20">
+      <a ng-click="pTally('v2p', 0)" role="button" class="button button-stable">2P</a>
+</div> <div class="col-20">
+      <a ng-click="pTally('v3p', 0)" role="button" class="button button-stable">3P</a>
+</div> <div class="col-20">
+      <a ng-click="pTally('vft', 0)" role="button" class="button button-stable">1P</a>
+</div></div>
+
+  <div class="row-fluid">  <h2> </h2>  </div>
+
     <ion-list>
-      <ion-item ng-repeat="playlist in playlists" ng-show="playlist.show">   
+      <ion-item ng-repeat="playlist in playlists" ng-show="playlist.onc">   
       
       <!-- href="#/app/playlists/{{playlist.id}}" -->
 
@@ -14,8 +36,8 @@
 
   <div class="row">  <div class="card col-20 text-center">
       <span class="button button-small button-calm">  {{playlist.title}}  {{playlist.id}} </span>
-<br>          <label class="toggle toggle-energized">
-              <input type="checkbox" ng-model="playlist.show">
+<br><br>          <label class="toggle toggle-small toggle-balanced">
+              <input type="checkbox" ng-model="playlist.onc">
               <div class="track">
                   <div class="handle"></div>
               </div>
@@ -34,30 +56,35 @@
       </ion-item>
     </ion-list>
 
-  <div class="row-fluid">  Bench:  <h2> </h2>  </div>
+  <div class="row-fluid">  <h2> </h2>   </div>
 
-  <div class="row-fluid">  
+    <ion-list>
 
-      <span class="card" ng-repeat="playlist in playlists" ng-hide="playlist.show">   
+      <ion-item class="card" ng-repeat="playlist in playlists" ng-hide="playlist.onc">   
       
       <!-- href="#/app/playlists/{{playlist.id}}" -->
 
 <!-- div  class="list card" ng-repeat="pp in xxTimes($l_s.vm.pp)" ng-init="ppIdx = $index"
 </div>
 -->
-
-      <span class="button button-small button-calm">  {{playlist.title}}  {{playlist.id}} </span>
-      <label class="toggle toggle-energized">
-              <input type="checkbox" ng-model="playlist.show">
+<div class="row">
+<div class="col-20">
+      <span class="button button-small button-stable">  {{playlist.title}}  {{playlist.id}} </span>
+</div>
+<div class="col text-right">      <label class="toggle toggle-small toggle-light">
+              <input type="checkbox" ng-model="playlist.onc">
               <div class="track">
                   <div class="handle"></div>
               </div>
           </label>
-
-<span class="button button-small button-light">  </span>
-
-      </span>
 </div>
+</div>
+  <div class="row-fluid"> 
+  key stats
+  </div>
+
+      </ion-item>
+    </ion-list>
 
   </ion-content>
 </ion-view>
