@@ -14,25 +14,7 @@ angular.module('starter', ['ionic'])
       url: "/app",
       abstract: true,
       templateUrl: "menu.html",
-      controller: 'AppCtrl'
-    })
-
-    .state('app.search', {
-      url: "/search",
-      views: {
-        'menuContent' :{
-          templateUrl: "search.html"
-        }
-      }
-    })
-
-    .state('app.browse', {
-      url: "/browse",
-      views: {
-        'menuContent' :{
-          templateUrl: "browse.html"
-        }
-      }
+      controller: 'PlaylistsCtrl'
     })
     .state('app.playlists', {
       url: "/playlists",
@@ -40,16 +22,6 @@ angular.module('starter', ['ionic'])
         'menuContent' :{
           templateUrl: "playlists.html",
           controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-    .state('app.single', {
-      url: "/playlists/:playlistId",
-      views: {
-        'menuContent' :{
-          templateUrl: "playlist.html",
-          controller: 'PlaylistCtrl'
         }
       }
     });
