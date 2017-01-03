@@ -30,17 +30,6 @@ angular.module('starter', ['ionic'])
 
 })
 
-.factory('Utils00', function($http, $interval) {
-  var ii = 0,
-    jj = 0,
-    kk = 0,
-    ss = "",
-    aa = [],
-    jsonData = [],
-    BBstatsLog = "";
-	
-}) // end service Utils00
-
 .run(function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {
   // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -144,7 +133,7 @@ localStorage.setItem('vGm', JSON.stringify($rootScope.vGm));
 
 })    //  end .run
 
-.controller('PlaylistsCtrl', function($scope, $rootScope, Utils00) {
+.controller('PlaylistsCtrl', function($scope, $rootScope) {
 
 $scope.pTally = function (tt, xx) {
 
