@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -66,120 +66,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     aa = [],
     jsonData = [],
     BBstatsLog = "";
-
-  function tally00(tt, xx, s$) {
-
-    if ($rootScope.vGm.Gm.f) {
-      $rootScope.vGm.Gm.t = "/";
-    } else {
-      $rootScope.vGm.Gm.t = "|";
-    }
-    $rootScope.vGm.Gm.f = !$rootScope.vGm.Gm.f; // just a blip
-
-    switch (tt) {
-      case 'y2p':
-        $rootScope.vGm.vP[xx].pp += 2;
-        $rootScope.vGm.vGH.pp += 2;
-        $rootScope.vGm.vP[xx].y2p++;
-        $rootScope.vGm.vP[xx].rrfg = Math.round((($rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].y3p) / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
-        break;
-      case 'x2p':
-        $rootScope.vGm.vP[xx].x2p++;
-        $rootScope.vGm.vP[xx].rrfg = Math.round((($rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].y3p) / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
-        break;
-      case 'y3p':
-        $rootScope.vGm.vP[xx].pp += 3;
-        $rootScope.vGm.vGH.pp += 3;
-        $rootScope.vGm.vP[xx].y3p++;
-        $rootScope.vGm.vP[xx].rr3p = Math.round(($rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
-        $rootScope.vGm.vP[xx].rrfg = Math.round((($rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].y3p) / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
-        break;
-      case 'x3p':
-        $rootScope.vGm.vP[xx].x3p++;
-        $rootScope.vGm.vP[xx].rr3p = Math.round(($rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
-        $rootScope.vGm.vP[xx].rrfg = Math.round((($rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].y3p) / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
-        break;
-      case 'yft':
-        $rootScope.vGm.vP[xx].pp++;
-        $rootScope.vGm.vGH.pp++;
-        $rootScope.vGm.vP[xx].yft++;
-        $rootScope.vGm.vP[xx].rrft = Math.round(($rootScope.vGm.vP[xx].yft / ($rootScope.vGm.vP[xx].xft + $rootScope.vGm.vP[xx].yft)) * 100);
-        break;
-      case 'xft':
-        $rootScope.vGm.vP[xx].xft++;
-        $rootScope.vGm.vP[xx].rrft = Math.round(($rootScope.vGm.vP[xx].yft / ($rootScope.vGm.vP[xx].xft + $rootScope.vGm.vP[xx].yft)) * 100);
-        break;
-      case 'ast':
-        $rootScope.vGm.vP[xx].ast++;
-        break;
-      case 'stl':
-        $rootScope.vGm.vP[xx].stl++;
-        break;
-      case 'blk':
-        $rootScope.vGm.vP[xx].blk++;
-        break;
-      case 'drb':
-        $rootScope.vGm.vP[xx].drb++;
-        break;
-      case 'orb':
-        $rootScope.vGm.vP[xx].orb++;
-        break;
-      case 'tov':
-        $rootScope.vGm.vP[xx].tov++;
-        break;
-      case 'pf':
-        $rootScope.vGm.vP[xx].pf++;
-        $rootScope.vGm.vGH.ff++;
-        break;
-      case 'tf':
-        $rootScope.vGm.vP[xx].tf++;
-        break;
-      case 'tf':
-        $rootScope.vGm.vP[xx].tf++;
-        break;
-      case 'tf':
-        $rootScope.vGm.vP[xx].tf++;
-        break;
-      case 'v2p':
-        $rootScope.vGm.vGV.pp += 2;
-        break;
-      case 'v3p':
-        $rootScope.vGm.vGV.pp += 3;
-        break;
-      case 'vft':
-        $rootScope.vGm.vGV.pp++;
-        break;
-      case 'vpf':
-        $rootScope.vGm.vGV.ff++;
-        break;
-      default:
-        break;
-    }
-  }
-
-  function aaTimes(nn) {
-    var ii = 0;
-    var aa = [];
-    for (ii = 0; ii < nn; ii++) {
-      if (arguments.length > 1) {
-        aa[ii] = arguments[1];
-      } else {
-        aa[ii] = ii;
-      }
-    }
-    return aa;
-  }
-
-  // return options
-  return {
-    tally: function(tt, xx, s$) {
-      return tally00(tt, xx, s$);
-    },
-    xxTimes: function(nn) {
-      return aaTimes(nn);
-    }
-  };
-
+	
 }) // end service Utils00
 
 .run(function($ionicPlatform, $rootScope) {
