@@ -36,7 +36,8 @@
 
   <div class="row">  <div class="card col-20 text-center">
       <span class="button button-small button-dark">  {{playlist.Nm}}  {{playlist.Nu}} </span>
-<br><br>          <label class="toggle toggle-small toggle-balanced">
+<br>    <strong> {{ playlist.pp }}  &nbsp;   {{ playlist.pf }}  &nbsp;   {{ playlist.tov }}    </strong>
+<br>          <label class="toggle toggle-small toggle-balanced">
               <input type="checkbox" ng-model="playlist.onc">
               <div class="track">
                   <div class="handle"></div>
@@ -44,7 +45,6 @@
           </label>
 </div>
 <div class="col">
-
           <a ng-click="pTally('y2p', $index)" role="button" class="button button-small button-balanced">2P.y</a>
           <a ng-click="pTally('y3p', $index)" role="button" class="button button-small button-balanced">3P.y</a>
           <a ng-click="pTally('yft', $index)" role="button" class="button button-small button-balanced">FT.y</a>
@@ -61,17 +61,7 @@
           <a ng-click="pTally('blk', $index)" role="button" class="button button-small button-royal">BLK</a>
           <a ng-click="pTally('orb', $index)" role="button" class="button button-small button-royal">o.RB</a>
           <a ng-click="pTally('tf', $index)" role="button" class="button button-small button-assertive">t.F</a>
-
 </div></div>
-  <div class="row-fluid button button-small button-stable"> 
- <strong>    Pts: {{ playlist.pp }}  &nbsp;  PF: {{ playlist.pf }}  &nbsp;  tov: {{playlist.tov}}   &nbsp; </strong>
- <span class="row-fluid button button-small button-light"> 
- FG:  {{ bvP.y2p }}-{{ bvP.x2p }} [{{ bvP.rrfg }}%]
-    &nbsp;&nbsp; 3p: {{ bvP.y3p }}-{{ bvP.x3p }} [{{ bvP.rr3p }}%]
-    &nbsp;&nbsp; FT: {{ bvP.yft }}-{{ bvP.xft }} [{{ bvP.rrft }}%] 
-    <br>ast: {{ bvP.ast }} &nbsp;stl: {{ bvP.stl }} 
-    &nbsp;blk: {{ bvP.blk }}  &nbsp;d.Rb: {{ bvP.drb }}  &nbsp;o.Rb: {{ bvP.orb }} &nbsp;t.F: {{ bvP.tf }}
-  </span></div>
   <h2> </h2>
 
       </ion-item>
