@@ -1,4 +1,4 @@
-<ion-view title="Playlists">
+<ion-view title="Game Stats">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
@@ -26,19 +26,19 @@
   <div class="row-fluid">  <h2> </h2>  </div>
 
     <ion-list>
-      <ion-item ng-repeat="playlist in vGm.vP" ng-show="playlist.onc">   
+      <ion-item ng-repeat="onCvP in vGm.vP" ng-show="onCvP.onc">   
       
-      <!-- href="#/app/playlists/{{playlist.Nu}}" -->
+      <!-- href="#/app/playlists/{{onCvP.Nu}}" -->
 
 <!-- div  class="list card" ng-repeat="pp in xxTimes($l_s.vm.pp)" ng-init="ppIdx = $index"
 </div>
 -->
 
   <div class="row">  <div class="card col-20 text-center">
-      <span class="button button-small button-dark">  {{playlist.Nm}}  {{playlist.Nu}} </span>
-<br>    <strong> {{ playlist.pp }}  &nbsp;   {{ playlist.pf }}  &nbsp;   {{ playlist.tov }}    </strong>
+      <span class="button button-small button-dark">  {{onCvP.Nm}}  {{onCvP.Nu}} </span>
+<br>    <strong> {{ onCvP.pp }}  &nbsp;   {{ onCvP.pf }}  &nbsp;   {{ onCvP.tov }}    </strong>
 <br>          <label class="toggle toggle-small toggle-balanced">
-              <input type="checkbox" ng-model="playlist.onc">
+              <input type="checkbox" ng-model="onCvP.onc">
               <div class="track">
                   <div class="handle"></div>
               </div>
