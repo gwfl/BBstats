@@ -2,14 +2,20 @@
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
-  <ion-content class="has-header">
+  <ion-nav-buttons side="right">
+    <button class="button button-calm">{{vGm.vGH.pp}}</button>
+    <span class="button button-stable"> </span>
+    <button class="button button-light">{{vGm.vGV.pp}}</button>
+  </ion-nav-buttons>
+
+<ion-content class="has-header">
   <h2> </h2>
   
   <div class="row">  
-  <div class="col text-center">Grizzlies: <br> <span class="button button-large button-dark"> {{vGm.vGH.pp}}</span></div>
-  <div class="col text-center">Opponent: <br> <span class="button button-large button-calm"> {{vGm.vGV.pp}}</span> </div>
+  <div class="col text-center">Grizzlies: <br> <span class="button button-large button-calm"> {{vGm.vGH.pp}}</span></div>
+  <div class="col text-center">Opponent: <br> <span class="button button-large button-light"> {{vGm.vGV.pp}}</span> </div>
   <div class="col text-center">
-      <span class="button-small">Track Opponent:</span> <br>
+      <span class="button-small">Opp Score:</span> <br>
       <a ng-click="pTally('v2p', 0)" role="button" class="button button-small  button-stable">2P</a>
       <span class="button-small"> </span>
       <a ng-click="pTally('v3p', 0)" role="button" class="button button-small  button-stable">3P</a>
@@ -22,10 +28,10 @@
       
       <!-- href="#/app/playlists/{{onCvP.Nu}}" -->
 
-  <div class="row">  <div class="card col-20 text-center">
-      <span class="button button-small button-dark">  {{onCvP.Nm}}  {{onCvP.Nu}} </span>
+  <div class="row">  <div class="card col-25 text-center">
+      <span class="button button-small button-calm">  {{onCvP.Nm}}  {{onCvP.Nu}} </span>
 <br>    <strong> {{ onCvP.pp }}  &nbsp;   {{ onCvP.pf }}  &nbsp;   {{ onCvP.tov }}    </strong>
-<br>          <label class="toggle toggle-small toggle-balanced">
+<br>          <label class="toggle toggle-small toggle-calm">
               <input type="checkbox" ng-model="onCvP.onc" ng-change="pTally('-', 0)" >
               <div class="track">
                   <div class="handle"></div>
@@ -40,13 +46,12 @@
           <a ng-click="pTally('stl', $index)" role="button" class="button button-small button-royal">STL</a>
           <a ng-click="pTally('drb', $index)" role="button" class="button button-small button-balanced">d.RB</a>
           <a ng-click="pTally('pf', $index)" role="button" class="button button-small button-energized">p.F</a>
-          <br>
-          <br>
+          <br>  <br>
           <a ng-click="pTally('x2p', $index)" role="button" class="button button-small button-energized">2p.x</a>
           <a ng-click="pTally('x3p', $index)" role="button" class="button button-small button-energized">3p.x</a>
           <a ng-click="pTally('xft', $index)" role="button" class="button button-small button-energized">ft.x</a>
           <a ng-click="pTally('tov', $index)" role="button" class="button button-small button-energized">TOV</a>
-          <a ng-click="pTally('blk', $index)" role="button" class="button button-small button-royal">BLK</a>
+          <a ng-click="pTally('blk', $index)" role="button" class="button button-small button-royal">BLK</a>          
           <a ng-click="pTally('orb', $index)" role="button" class="button button-small button-royal">o.RB</a>
           <a ng-click="pTally('tf', $index)" role="button" class="button button-small button-assertive">t.F</a>
 </div></div>
@@ -93,7 +98,7 @@
       </ion-item>
     </ion-list>
 
-  <h2> </h2>    <a ng-click="resetLS()" role="button" class="button button-small button-stable">reset</a>
+  <h2> </h2>  <a ng-click="resetLS()" role="button" class="button button-small button-stable">reset</a>
 
   </ion-content>
 </ion-view>
