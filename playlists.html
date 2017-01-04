@@ -16,7 +16,7 @@
       <span class="button-small"> </span>
       <a ng-click="pTally('vft', 0)" role="button" class="button button-small  button-stable">1P</a>
 </div></div>
-
+  
     <ion-list>
       <ion-item ng-repeat="onCvP in vGm.vP" ng-show="onCvP.onc">   
       
@@ -26,7 +26,7 @@
       <span class="button button-small button-dark">  {{onCvP.Nm}}  {{onCvP.Nu}} </span>
 <br>    <strong> {{ onCvP.pp }}  &nbsp;   {{ onCvP.pf }}  &nbsp;   {{ onCvP.tov }}    </strong>
 <br>          <label class="toggle toggle-small toggle-balanced">
-              <input type="checkbox" ng-model="onCvP.onc">
+              <input type="checkbox" ng-model="onCvP.onc" ng-change="pTally('-', 0)" >
               <div class="track">
                   <div class="handle"></div>
               </div>
@@ -75,7 +75,7 @@
 </div>
 <div class="col text-right">
         <label class="toggle toggle-small toggle-light">
-              <input type="checkbox" ng-model="bvP.onc">
+              <input type="checkbox" ng-model="bvP.onc"  ng-change="pTally('+', 0)" >
               <div class="track">
                   <div class="handle"></div>
               </div>
@@ -93,7 +93,7 @@
       </ion-item>
     </ion-list>
 
-  <h2> </h2>  {{ appLog }}      <a ng-click="resetLS()" role="button" class="button button-small button-stable">reset</a>
+  <h2> </h2>    <a ng-click="resetLS()" role="button" class="button button-small button-stable">reset</a>
 
   </ion-content>
 </ion-view>
