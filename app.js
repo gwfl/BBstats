@@ -14,17 +14,47 @@ angular.module('starter', ['ionic'])
       url: "/app",
       abstract: true,
       templateUrl: "menu.html",
-      controller: 'PlaylistsCtrl'
+      controller: 'AppCtrl'
     })
+
+/* 
+    .state('app.search', {
+      url: "/search",
+      views: {
+        'menuContent' :{
+          templateUrl: "search.html"
+        }
+      }
+    })
+    .state('app.browse', {
+      url: "/browse",
+      views: {
+        'menuContent' :{
+          templateUrl: "browse.html"
+        }
+      }
+    })
+    .state('app.single', {
+      url: "/playlists/:playlistId",
+      views: {
+        'menuContent' :{
+          templateUrl: "playlist.html",
+          controller: 'PlaylistCtrl'
+        }
+      }
+    })
+*/
+
     .state('app.playlists', {
       url: "/playlists",
       views: {
         'menuContent' :{
           templateUrl: "playlists.html",
-          controller: 'PlaylistsCtrl'
+          controller: 'AppCtrl'
         }
       }
     });
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');
 
@@ -61,12 +91,7 @@ if (storageAvailable('sessionStorage')) {
 	$rootScope.appLog = " ";
 }
 
-
-if (localStorage.getItem('vGm') !== null) { 
-  $rootScope.vGm = JSON.parse(localStorage.getItem('vGm'));
-  console.log("getItem:vGm ", $rootScope.vGm.vGV.pp);
-}  else {
-$rootScope.vGm = {
+$rootScope.vGm00 = {
   vGH: { pp: 0, ff: 0, tt: 0 },
   vGV: { pp: 0, ff: 0, tt: 0 },
   vP: [
@@ -106,7 +131,7 @@ $rootScope.vGm = {
     "y2p": 0, "x2p": 0, "y3p": 0, "x3p": 0, 
     "yft": 0, "xft": 0, "ast": 0, "stl": 0, 
     "drb": 0, "orb": 0, "tov": 0, "blk": 0, "tf": 0 },
-  { "Nm": "Miguel",  "Nu": "00"  , "onc": false, 
+  { "Nm": "Miguel",  "Nu": "12"  , "onc": false, 
     "pp": 0,  "pf": 0, "rrfg": 0, "rr3p": 0, "rrft": 0,
     "inG": 0, "outG": 0, "totPss": 0,
     "y2p": 0, "x2p": 0, "y3p": 0, "x3p": 0, 
@@ -126,39 +151,44 @@ $rootScope.vGm = {
     "drb": 0, "orb": 0, "tov": 0, "blk": 0, "tf": 0 }
   ]  
 };
-  
+localStorage.setItem('vGm00', JSON.stringify($rootScope.vGm00));   
+
+if (localStorage.getItem('vGm') !== null) { 
+  $rootScope.vGm = JSON.parse(localStorage.getItem('vGm'));
+}  else {
+  $rootScope.vGm = JSON.parse(localStorage.getItem('vGm00'));
 }
 
 localStorage.setItem('vGm', JSON.stringify($rootScope.vGm));   
+  // $rootScope.appLog += ".run";
 
 })    //  end .run
 
-.controller('PlaylistsCtrl', function($scope, $rootScope) {
+.controller('AppCtrl', function($scope, $rootScope) {
+  //  $rootScope.appLog += ".AppC";
 
 $scope.pTally = function (tt, xx) {
-
+  
     switch (tt) {
       case 'y2p':
         $rootScope.vGm.vP[xx].pp += 2;
         $rootScope.vGm.vGH.pp += 2;
         $rootScope.vGm.vP[xx].y2p++;
-        $rootScope.vGm.vP[xx].rrfg = Math.round((($rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].y3p) / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
+        $rootScope.vGm.vP[xx].rrfg = Math.round(( $rootScope.vGm.vP[xx].y2p / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p)) * 100);
         break;
       case 'x2p':
         $rootScope.vGm.vP[xx].x2p++;
-        $rootScope.vGm.vP[xx].rrfg = Math.round((($rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].y3p) / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
+        $rootScope.vGm.vP[xx].rrfg = Math.round(( $rootScope.vGm.vP[xx].y2p / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p)) * 100);
         break;
       case 'y3p':
         $rootScope.vGm.vP[xx].pp += 3;
         $rootScope.vGm.vGH.pp += 3;
         $rootScope.vGm.vP[xx].y3p++;
         $rootScope.vGm.vP[xx].rr3p = Math.round(($rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
-        $rootScope.vGm.vP[xx].rrfg = Math.round((($rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].y3p) / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
         break;
       case 'x3p':
         $rootScope.vGm.vP[xx].x3p++;
         $rootScope.vGm.vP[xx].rr3p = Math.round(($rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
-        $rootScope.vGm.vP[xx].rrfg = Math.round((($rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].y3p) / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p + $rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
         break;
       case 'yft':
         $rootScope.vGm.vP[xx].pp++;
@@ -217,13 +247,13 @@ $scope.pTally = function (tt, xx) {
         break;
     }
 
-localStorage.setItem('vGm', JSON.stringify($rootScope.vGm));   
+  localStorage.setItem('vGm', JSON.stringify($rootScope.vGm));   
+  //  $rootScope.appLog += ".pT:" + tt;
 };
 
 $scope.resetLS = function() {
-  localStorage.clear();    // removeItem('vGm');   
-  $rootScope.vGm.vGH.pp = 0;
-  $rootScope.vGm.vGV.pp = 0;
+  localStorage.removeItem('vGm');    // clear();   
+  $rootScope.vGm = JSON.parse(localStorage.getItem('vGm00'));
 };
 
 });
