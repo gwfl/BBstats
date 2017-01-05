@@ -175,105 +175,112 @@ $scope.setppIdx = function (xx) {
   $rootScope.appLog += ".pI:" + xx; }
 }
   
+$scope.tglundoCB = function () {
+  $scope.undoCB = !$scope.undoCB;
+}
+  
 $scope.pTally = function (tt, xx) {
-  $rootScope.vGm.vP[xx].onc2 = false;
-  $scope.ppIdx = -1;
 
+  $rootScope.vGm.vP[xx].onc2 = false;
+  if ($scope.undoCB) { undo = -1; }  else { undo = 1; }
+  $scope.undoCB = false; 
+  $scope.ppIdx = -1;
+  
     switch (tt) {
       case 'y2p':
-        $rootScope.vGm.vGH.pp += 2;   // * undo
+        $rootScope.vGm.vGH.pp += 2 * undo;
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].pp += 2;  // * undo
-        $rootScope.vGm.vP[xx].y2p += 1;    // * undo
+        $rootScope.vGm.vP[xx].pp += 2 * undo; 
+        $rootScope.vGm.vP[xx].y2p += 1 * undo;   
         $rootScope.vGm.vP[xx].rrfg = Math.round(( $rootScope.vGm.vP[xx].y2p / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p)) * 100);
         }
         break;
       case 'x2p':
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].x2p += 1;    // * undo
+        $rootScope.vGm.vP[xx].x2p += 1 * undo;   
         $rootScope.vGm.vP[xx].rrfg = Math.round(( $rootScope.vGm.vP[xx].y2p / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p)) * 100);
         }
         break;
       case 'y3p':
-        $rootScope.vGm.vGH.pp += 3;   // * undo
+        $rootScope.vGm.vGH.pp += 3 * undo;
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].pp += 3;  // * undo
-        $rootScope.vGm.vP[xx].y3p += 1;    // * undo
+        $rootScope.vGm.vP[xx].pp += 3 * undo;  
+        $rootScope.vGm.vP[xx].y3p += 1 * undo;   
         $rootScope.vGm.vP[xx].rr3p = Math.round(( $rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
         }
         break;
       case 'x3p':
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].x3p += 1;    // * undo
+        $rootScope.vGm.vP[xx].x3p += 1 * undo;  
         $rootScope.vGm.vP[xx].rr3p = Math.round(( $rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
         }
         break;
       case 'yft':
-        $rootScope.vGm.vGH.pp += 1;   // * undo
+        $rootScope.vGm.vGH.pp += 1 * undo;  
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].pp += 1;  // * undo
-        $rootScope.vGm.vP[xx].yft += 1;    // * undo
+        $rootScope.vGm.vP[xx].pp += 1 * undo; 
+        $rootScope.vGm.vP[xx].yft += 1 * undo;   
         $rootScope.vGm.vP[xx].rrft = Math.round(( $rootScope.vGm.vP[xx].yft / ($rootScope.vGm.vP[xx].xft + $rootScope.vGm.vP[xx].yft)) * 100);
         }
         break;
       case 'xft':
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].xft += 1;    // * undo
+        $rootScope.vGm.vP[xx].xft += 1 * undo;   
         $rootScope.vGm.vP[xx].rrft = Math.round(( $rootScope.vGm.vP[xx].yft / ($rootScope.vGm.vP[xx].xft + $rootScope.vGm.vP[xx].yft)) * 100);
         }
         break;
       case 'ast':
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].ast += 1;    // * undo
+        $rootScope.vGm.vP[xx].ast += 1 * undo;   
         }
         break;
       case 'stl':
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].stl += 1;    // * undo
+        $rootScope.vGm.vP[xx].stl += 1 * undo;   
         }
         break;
       case 'blk':
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].blk += 1;    // * undo
+        $rootScope.vGm.vP[xx].blk += 1 * undo;  
         }
         break;
       case 'drb':
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].drb += 1;    // * undo
+        $rootScope.vGm.vP[xx].drb += 1 * undo;   
         }
         break;
       case 'orb':
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].orb += 1;    // * undo
+        $rootScope.vGm.vP[xx].orb += 1 * undo;   
         }
         break;
       case 'tov':
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].tov += 1;    // * undo
+        $rootScope.vGm.vP[xx].tov += 1 * undo;   
         }
         break;
       case 'pf':
-        $rootScope.vGm.vGH.ff += 1;  // * undo
+        $rootScope.vGm.vGH.ff += 1 * undo; 
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].pf += 1;    // * undo
+        $rootScope.vGm.vP[xx].pf += 1 * undo;  
         }
         break;
       case 'tf':
         if (xx >= 0) {
-        $rootScope.vGm.vP[xx].tf += 1;    // * undo
+        $rootScope.vGm.vP[xx].tf += 1 * undo;    
         }
         break;
       case 'v2p':
-        $rootScope.vGm.vGV.pp += 2;
+        $rootScope.vGm.vGV.pp += 2 * undo;
         break;
       case 'v3p':
-        $rootScope.vGm.vGV.pp += 3;
+        $rootScope.vGm.vGV.pp += 3 * undo;
         break;
       case 'vft':
-        $rootScope.vGm.vGV.pp++;
+        $rootScope.vGm.vGV.pp += 1 * undo;
         break;
       case 'vpf':
-        $rootScope.vGm.vGV.ff++;
+        $rootScope.vGm.vGV.ff += 1 * undo;
         break;
       default:
         break;
