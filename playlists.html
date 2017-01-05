@@ -10,16 +10,6 @@
 
 <ion-content class="has-header">
 
-  <div class="row-fluid text-right">  
-      <span class="button-small">  &nbsp;  </span>      <span class="button-small">  &nbsp;  </span>
-      <button ng-click="pTally('v2p', 0)" class="button button-small button-stable">2P</button>
-      <span class="button-small">  &nbsp;  </span>
-      <button ng-click="pTally('v3p', 0)" class="button button-small button-stable">3P</button>
-      <span class="button-small">  &nbsp;  </span>
-      <button ng-click="pTally('vft', 0)" class="button button-small button-stable">1P</button>
-</div>
-
-
     <ion-list>
       <ion-item>   
       
@@ -32,8 +22,7 @@
                   <div class="handle"></div>
               </div>
           </label>
-<br>    <strong> {{ onCvP.pp }}  &nbsp;   {{ onCvP.pf }}  &nbsp;   {{ onCvP.tov }}    </strong>
-<br><br>                <input type="checkbox" ng-model="onCvP.onc2">   
+<br>                <input type="checkbox" ng-model="onCvP.onc2">     &nbsp;    <strong> {{ onCvP.pp }}  &nbsp;   {{ onCvP.pf }}  &nbsp;   {{ onCvP.tov }}    </strong>
 <br>      <button class="button button-small button-calm" ng-click="setppIdx($index)">  {{onCvP.Nm}}  {{onCvP.Nu}} </button>
 </div></div>
 
@@ -62,10 +51,16 @@
            <button ng-click="pTally('pf', ppIdx)"  class="button   button-energized"> p.F </button>
      &nbsp;          <button ng-click="pTally('tf', ppIdx)"  class="button   button-assertive"> t.F </button>
 </div>
-</div>
-<div class="row">
-  <button class="button button-small button-stable" ng-click="tglundoCB()">  
+  <div class="col text-right">  
+      <span class="button-small">  Opp Score:   </span>
+      <button ng-click="pTally('v2p', 0)" class="button button-small button-stable">2P</button>
+      <span class="button-small">  &nbsp;  </span>
+      <button ng-click="pTally('v3p', 0)" class="button button-small button-stable">3P</button>
+      <span class="button-small">  &nbsp;  </span>
+      <button ng-click="pTally('vft', 0)" class="button button-small button-stable">1P</button>
+<br><br><br>  <button class="button button-small button-stable" ng-click="tglundoCB()">  
       <input type="checkbox" ng-model="undoCB"> undo </button>
+</div>
 </div>
       </ion-item>
     </ion-list>
