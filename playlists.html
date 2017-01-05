@@ -22,21 +22,19 @@
 </div></div>
 
     <ion-list>
-      <ion-item>   
-      
-      <!-- href="#/app/playlists/{{onCvP.Nu}}" -->
-
+      <ion-item>         <!-- href="#/app/playlists/{{onCvP.Nu}}" -->        
+        
   <div class="row">  <div class="card col text-center"  ng-repeat="onCvP in vGm.vP" ng-show="onCvP.onc">
       <button class="button button-small button-calm" ng-click="setppIdx($index)">  {{onCvP.Nm}}  {{onCvP.Nu}} </button>
-<br>                <input type="checkbox" ng-model="onCvP.onc2">   &nbsp;  &nbsp; 
-    <strong> {{ onCvP.pp }}  &nbsp;   {{ onCvP.pf }}  &nbsp;   {{ onCvP.tov }}    </strong>
+<br>                <input type="checkbox" ng-model="onCvP.onc2">   
+<br>    <strong> {{ onCvP.pp }}  &nbsp;   {{ onCvP.pf }}  &nbsp;   {{ onCvP.tov }}    </strong>
 <br><br>          <label class="toggle toggle-small toggle-calm">
               <input type="checkbox" ng-model="onCvP.onc" ng-change="pTally('-', 0)" >
               <div class="track">
                   <div class="handle"></div>
               </div>
           </label>
-</div></div>
+</div></div> 
   <h2> </h2>
 
       <!-- href="#/app/playlists/{{onCvP.Nu}}" -->
