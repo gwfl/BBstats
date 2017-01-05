@@ -40,11 +40,6 @@
 
       <!-- href="#/app/playlists/{{onCvP.Nu}}" -->
 <div class="row">
-  <button class="button button-small button-stable" ng-click="tglundoCB()">  
-      <input type="checkbox" ng-model="undoCB"> undo </button>
-</div>
-
-<div class="row">
 <div class="col text-center">
            <button ng-click="pTally('y2p', ppIdx)"  class="button   button-balanced"> 2P.y </button>
    &nbsp;         <button ng-click="pTally('y3p', ppIdx)"  class="button   button-balanced"> 3P.y </button>
@@ -69,15 +64,16 @@
      &nbsp;          <button ng-click="pTally('tf', ppIdx)"  class="button   button-assertive"> t.F </button>
 </div>
 </div>
-  <h2> </h2>
-
+<div class="row">
+  <button class="button button-small button-stable" ng-click="tglundoCB()">  
+      <input type="checkbox" ng-model="undoCB"> undo </button>
+</div>
       </ion-item>
     </ion-list>
 
   <div class="row-fluid">  <h2> </h2>   </div>
 
     <ion-list>
-
       <ion-item class="card" ng-repeat="bvP in vGm.vP" ng-hide="bvP.onc">   
       
       <!-- href="#/app/playlists/{{bvP.Nu}}" -->
