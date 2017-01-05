@@ -28,7 +28,7 @@
 
   <div class="row">  <div class="card col text-center"  ng-repeat="onCvP in vGm.vP" ng-show="onCvP.onc">
       <button class="button button-small button-calm" ng-click="setppIdx($index)">  {{onCvP.Nm}}  {{onCvP.Nu}} </button>
-    <br>          <input type="checkbox" ng-model="onCvP.onc2" ng-change="setppIdx($index)" >
+           <input type="checkbox" ng-model="onCvP.onc2" ng-change="setppIdx($index)" >
 <br>    <strong> {{ onCvP.pp }}  &nbsp;   {{ onCvP.pf }}  &nbsp;   {{ onCvP.tov }}    </strong>
 <br><br>          <label class="toggle toggle-small toggle-calm">
               <input type="checkbox" ng-model="onCvP.onc" ng-change="pTally('-', 0)" >
