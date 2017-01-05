@@ -5,56 +5,59 @@
   <ion-nav-buttons side="right">
     <button class="button button-calm">{{vGm.vGH.pp}}</button>
     <span class="button button-stable"> </span>
-    <button class="button button-light">{{vGm.vGV.pp}}</button>
+    <button class="button button-dark">{{vGm.vGV.pp}}</button>
   </ion-nav-buttons>
 
 <ion-content class="has-header">
-  <h2> </h2>
-  
+
   <div class="row">  
-  <div class="col text-center">Grizzlies: <br> <span class="button button-large button-calm"> {{vGm.vGH.pp}}</span></div>
-  <div class="col text-center">Opponent: <br> <span class="button button-large button-stable"> {{vGm.vGV.pp}}</span> </div>
+  <div class="col-50 text-center">Grizzlies: <br> <span class="button button-large button-calm"> {{vGm.vGH.pp}}</span></div>
+  <div class="col text-center">Opponent: <br> <span class="button button-large button-dark"> {{vGm.vGV.pp}}</span> </div>
   <div class="col text-center">
-      <span class="button-small">Opp Score:</span> <br>
-      <a ng-click="pTally('v2p', 0)" role="button" class="button button-small  button-stable">2P</a>
+      <button ng-click="pTally('v2p', 0)" class="button button-stable">2P</button>
       <span class="button-small"> </span>
-      <a ng-click="pTally('v3p', 0)" role="button" class="button button-small  button-stable">3P</a>
+      <button ng-click="pTally('v3p', 0)" class="button button-stable">3P</button>
       <span class="button-small"> </span>
-      <a ng-click="pTally('vft', 0)" role="button" class="button button-small  button-stable">1P</a>
+      <button ng-click="pTally('vft', 0)" class="button button-stable">1P</button>
 </div></div>
-  
+
     <ion-list>
-      <ion-item ng-repeat="onCvP in vGm.vP" ng-show="onCvP.onc">   
+      <ion-item>   
       
       <!-- href="#/app/playlists/{{onCvP.Nu}}" -->
 
-  <div class="row">  <div class="card col-20 text-center">
-      <span class="button button-small button-calm">  {{onCvP.Nm}}  {{onCvP.Nu}} </span>
+  <div class="row">  <div class="card col text-center"  ng-repeat="onCvP in vGm.vP" ng-show="onCvP.onc">
+      <button class="button button-small button-calm" ng-click="setppIdx($index)">  {{onCvP.Nm}}  {{onCvP.Nu}} </button>
+    <br>          <input type="checkbox" ng-model="onCvP.onc2" ng-change="setppIdx($index)" >
 <br>    <strong> {{ onCvP.pp }}  &nbsp;   {{ onCvP.pf }}  &nbsp;   {{ onCvP.tov }}    </strong>
-<br>          <label class="toggle toggle-small toggle-calm">
+<br><br>          <label class="toggle toggle-small toggle-calm">
               <input type="checkbox" ng-model="onCvP.onc" ng-change="pTally('-', 0)" >
               <div class="track">
                   <div class="handle"></div>
               </div>
           </label>
-</div>
-<div class="col">
-          <a ng-click="pTally('y2p', $index)" role="button" class="button  button-balanced">2P.y</a>
-          <a ng-click="pTally('y3p', $index)" role="button" class="button  button-balanced">3P.y</a>
-          <a ng-click="pTally('yft', $index)" role="button" class="button  button-balanced">FT.y</a>
-          <a ng-click="pTally('ast', $index)" role="button" class="button  button-royal">AST</a>
-          <a ng-click="pTally('stl', $index)" role="button" class="button  button-royal">STL</a>
-          <a ng-click="pTally('drb', $index)" role="button" class="button  button-balanced">d.RB</a>
-          <a ng-click="pTally('pf', $index)" role="button" class="button  button-energized">p.F</a>
-          <br>  <br>
-          <a ng-click="pTally('x2p', $index)" role="button" class="button  button-energized">2p.x</a>
-          <a ng-click="pTally('x3p', $index)" role="button" class="button  button-energized">3p.x</a>
-          <a ng-click="pTally('xft', $index)" role="button" class="button  button-energized">ft.x</a>
-          <a ng-click="pTally('tov', $index)" role="button" class="button  button-energized">TOV</a>
-          <a ng-click="pTally('blk', $index)" role="button" class="button button-royal">BLK</a>          
-          <a ng-click="pTally('orb', $index)" role="button" class="button  button-royal">o.RB</a>
-          <a ng-click="pTally('tf', $index)" role="button" class="button  button-assertive">t.F</a>
 </div></div>
+  <h2> </h2>
+
+      <!-- href="#/app/playlists/{{onCvP.Nu}}" -->
+<div class="row-fluid text-center">
+
+           <button ng-click="pTally('y2p', ppIdx)" role="button" class="button   button-balanced">2P.y </button>
+           <button ng-click="pTally('y3p', ppIdx)" role="button" class="button   button-balanced">3P.y </button>
+           <button ng-click="pTally('yft', ppIdx)" role="button" class="button   button-balanced">FT.y </button>
+           <button ng-click="pTally('ast', ppIdx)" role="button" class="button   button-royal">AST </button>
+           <button ng-click="pTally('stl', ppIdx)" role="button" class="button   button-royal">STL </button>
+           <button ng-click="pTally('drb', ppIdx)" role="button" class="button   button-balanced">d.RB </button>
+           <button ng-click="pTally('pf', ppIdx)" role="button" class="button   button-energized">p.F </button>
+          <br>  <br>
+           <button ng-click="pTally('x2p', ppIdx)" role="button" class="button   button-energized">2p.x </button>
+           <button ng-click="pTally('x3p', ppIdx)" role="button" class="button   button-energized">3p.x </button>
+           <button ng-click="pTally('xft', ppIdx)" role="button" class="button   button-energized">ft.x </button>
+           <button ng-click="pTally('tov', ppIdx)" role="button" class="button   button-energized">TOV </button>
+           <button ng-click="pTally('blk', ppIdx)" role="button" class="button   button-royal">BLK </button>          
+           <button ng-click="pTally('orb', ppIdx)" role="button" class="button   button-royal">o.RB </button>
+           <button ng-click="pTally('tf', ppIdx)" role="button" class="button   button-assertive">t.F </button>
+</div>
   <h2> </h2>
 
       </ion-item>
@@ -98,7 +101,7 @@
       </ion-item>
     </ion-list>
 
-  <h2> </h2>  <a ng-click="resetLS()" role="button" class="button button-small button-stable">reset</a>
+  <h2> </h2>  <button ng-click="resetLS()" role="button" class="button button-small button-stable">reset </button>
 
   </ion-content>
 </ion-view>
