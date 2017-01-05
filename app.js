@@ -95,7 +95,7 @@ $rootScope.vGm00 = {
   vGH: { pp: 0, ff: 0, tt: 0 },
   vGV: { pp: 0, ff: 0, tt: 0 },
   vP: [
-  { "Nm": "Damien",  "Nu": "4", "onc": false, 
+  { "Nm": "Damien",  "Nu": "4", "onc": false,
     "pp": 0,  "pf": 0, "rrfg": 0, "rr3p": 0, "rrft": 0,
     "inG": 0, "outG": 0, "totPss": 0,
     "y2p": 0, "x2p": 0, "y3p": 0, "x3p": 0, 
@@ -160,76 +160,108 @@ if (localStorage.getItem('vGm') !== null) {
 }
 
 localStorage.setItem('vGm', JSON.stringify($rootScope.vGm));   
-  // $rootScope.appLog += ".run";
+  $rootScope.appLog += ".run";
 
 })    //  end .run
 
 .controller('AppCtrl', function($scope, $rootScope) {
-  //  $rootScope.appLog += ".AppC";
+  $rootScope.appLog += ".AppC";
 
-$scope.pTally = function (tt, xx) {
+$scope.setppIdx = function (xx) {
+  $rootScope.vGm.vP[xx].onc2 = !$rootScope.vGm.vP[xx].onc2;
   
+  if ($rootScope.vGm.vP[xx].onc2) {
+  $scope.ppIdx = xx;
+  $rootScope.appLog += ".pI:" + xx; }
+}
+  
+$scope.pTally = function (tt, xx) {
+  $rootScope.vGm.vP[xx].onc2 = false;
+  $scope.ppIdx = -1;
+
     switch (tt) {
       case 'y2p':
-        $rootScope.vGm.vP[xx].pp += 2;
-        $rootScope.vGm.vGH.pp += 2;
-        $rootScope.vGm.vP[xx].y2p++;
+        $rootScope.vGm.vGH.pp += 2;   // * undo
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].pp += 2;  // * undo
+        $rootScope.vGm.vP[xx].y2p += 1;    // * undo
         $rootScope.vGm.vP[xx].rrfg = Math.round(( $rootScope.vGm.vP[xx].y2p / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p)) * 100);
+        }
         break;
       case 'x2p':
-        $rootScope.vGm.vP[xx].x2p++;
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].x2p += 1;    // * undo
         $rootScope.vGm.vP[xx].rrfg = Math.round(( $rootScope.vGm.vP[xx].y2p / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p)) * 100);
+        }
         break;
       case 'y3p':
-        $rootScope.vGm.vP[xx].pp += 3;
-        $rootScope.vGm.vGH.pp += 3;
-        $rootScope.vGm.vP[xx].y3p++;
-        $rootScope.vGm.vP[xx].rr3p = Math.round(($rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
+        $rootScope.vGm.vGH.pp += 3;   // * undo
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].pp += 3;  // * undo
+        $rootScope.vGm.vP[xx].y3p += 1;    // * undo
+        $rootScope.vGm.vP[xx].rr3p = Math.round(( $rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
+        }
         break;
       case 'x3p':
-        $rootScope.vGm.vP[xx].x3p++;
-        $rootScope.vGm.vP[xx].rr3p = Math.round(($rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].x3p += 1;    // * undo
+        $rootScope.vGm.vP[xx].rr3p = Math.round(( $rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
+        }
         break;
       case 'yft':
-        $rootScope.vGm.vP[xx].pp++;
-        $rootScope.vGm.vGH.pp++;
-        $rootScope.vGm.vP[xx].yft++;
-        $rootScope.vGm.vP[xx].rrft = Math.round(($rootScope.vGm.vP[xx].yft / ($rootScope.vGm.vP[xx].xft + $rootScope.vGm.vP[xx].yft)) * 100);
+        $rootScope.vGm.vGH.pp += 1;   // * undo
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].pp += 1;  // * undo
+        $rootScope.vGm.vP[xx].yft += 1;    // * undo
+        $rootScope.vGm.vP[xx].rrft = Math.round(( $rootScope.vGm.vP[xx].yft / ($rootScope.vGm.vP[xx].xft + $rootScope.vGm.vP[xx].yft)) * 100);
+        }
         break;
       case 'xft':
-        $rootScope.vGm.vP[xx].xft++;
-        $rootScope.vGm.vP[xx].rrft = Math.round(($rootScope.vGm.vP[xx].yft / ($rootScope.vGm.vP[xx].xft + $rootScope.vGm.vP[xx].yft)) * 100);
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].xft += 1;    // * undo
+        $rootScope.vGm.vP[xx].rrft = Math.round(( $rootScope.vGm.vP[xx].yft / ($rootScope.vGm.vP[xx].xft + $rootScope.vGm.vP[xx].yft)) * 100);
+        }
         break;
       case 'ast':
-        $rootScope.vGm.vP[xx].ast++;
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].ast += 1;    // * undo
+        }
         break;
       case 'stl':
-        $rootScope.vGm.vP[xx].stl++;
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].stl += 1;    // * undo
+        }
         break;
       case 'blk':
-        $rootScope.vGm.vP[xx].blk++;
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].blk += 1;    // * undo
+        }
         break;
       case 'drb':
-        $rootScope.vGm.vP[xx].drb++;
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].drb += 1;    // * undo
+        }
         break;
       case 'orb':
-        $rootScope.vGm.vP[xx].orb++;
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].orb += 1;    // * undo
+        }
         break;
       case 'tov':
-        $rootScope.vGm.vP[xx].tov++;
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].tov += 1;    // * undo
+        }
         break;
       case 'pf':
-        $rootScope.vGm.vP[xx].pf++;
-        $rootScope.vGm.vGH.ff++;
+        $rootScope.vGm.vGH.ff += 1;  // * undo
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].pf += 1;    // * undo
+        }
         break;
       case 'tf':
-        $rootScope.vGm.vP[xx].tf++;
-        break;
-      case 'tf':
-        $rootScope.vGm.vP[xx].tf++;
-        break;
-      case 'tf':
-        $rootScope.vGm.vP[xx].tf++;
+        if (xx >= 0) {
+        $rootScope.vGm.vP[xx].tf += 1;    // * undo
+        }
         break;
       case 'v2p':
         $rootScope.vGm.vGV.pp += 2;
@@ -248,7 +280,7 @@ $scope.pTally = function (tt, xx) {
     }
 
   localStorage.setItem('vGm', JSON.stringify($rootScope.vGm));   
-  //  $rootScope.appLog += ".pT:" + tt;
+    $rootScope.appLog += ".pT:" + xx + tt;
 };
 
 $scope.resetLS = function() {
