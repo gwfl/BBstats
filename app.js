@@ -35,7 +35,7 @@ angular.module('starter', ['ionic'])
       }
     })
     .state('app.single', {
-      url: "/playlists/:playlistId",
+      url: "/main/:playlistId",
       views: {
         'menuContent' :{
           templateUrl: "playlist.html",
@@ -45,18 +45,18 @@ angular.module('starter', ['ionic'])
     })
 */
 
-    .state('app.playlists', {
-      url: "/playlists",
+    .state('app.main', {
+      url: "/main",
       views: {
         'menuContent' :{
-          templateUrl: "playlists.html",
+          templateUrl: "main.html",
           controller: 'AppCtrl'
         }
       }
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/main');
 
 })
 
@@ -166,77 +166,87 @@ localStorage.setItem('vGm', JSON.stringify($rootScope.vGm));
 
 .controller('AppCtrl', function($scope, $rootScope) {
   $rootScope.appLog += ".AppC";
-
-$scope.setppIdx = function (xx) {
-  $rootScope.vGm.vP[xx].onc2 = !$rootScope.vGm.vP[xx].onc2;
-  
-  if ($rootScope.vGm.vP[xx].onc2) {
-  $scope.ppIdx = xx;
-  $rootScope.appLog += ".pI:" + xx; }
-}
   
 $scope.tglundoCB = function () {
   $scope.undoCB = !$scope.undoCB;
-}
-  
+};
+
 $scope.pTally = function (tt, xx) {
 
-  $rootScope.vGm.vP[xx].onc2 = false;
   if ($scope.undoCB) { undo = -1; }  else { undo = 1; }
-  $scope.undoCB = false; 
-  $scope.ppIdx = -1;
+
+  if (xx < 0) {
+    $scope.ttIdx = tt;
+  } else {
+    $rootScope.vGm.vP[xx].onc2 = false;
+    $scope.undoCB = false; 
+    $scope.ppIdx = -1;
+  }
   
     switch (tt) {
       case 'y2p':
-        $rootScope.vGm.vGH.pp += 2 * undo;
-        if (xx >= 0) {
-        $rootScope.vGm.vP[xx].pp += 2 * undo; 
-        $rootScope.vGm.vP[xx].y2p += 1 * undo;   
-        $rootScope.vGm.vP[xx].rrfg = Math.round(( $rootScope.vGm.vP[xx].y2p / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p)) * 100);
+        if (xx < 0) { 
+          $rootScope.vGm.vGH.pp += 2 * undo; 
+        } else {
+          $rootScope.vGm.vP[xx].pp += 2 * undo; 
+          $rootScope.vGm.vP[xx].y2p += 1 * undo;   
+          $rootScope.vGm.vP[xx].rrfg = Math.round(( $rootScope.vGm.vP[xx].y2p / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p)) * 100);
         }
         break;
       case 'x2p':
-        if (xx >= 0) {
-        $rootScope.vGm.vP[xx].x2p += 1 * undo;   
-        $rootScope.vGm.vP[xx].rrfg = Math.round(( $rootScope.vGm.vP[xx].y2p / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p)) * 100);
+        if (xx < 0) { 
+          // $rootScope.vGm.vGH.pp += 0 * undo; 
+        } else {
+          $rootScope.vGm.vP[xx].x2p += 1 * undo;   
+          $rootScope.vGm.vP[xx].rrfg = Math.round(( $rootScope.vGm.vP[xx].y2p / ($rootScope.vGm.vP[xx].x2p + $rootScope.vGm.vP[xx].y2p)) * 100);
         }
         break;
       case 'y3p':
-        $rootScope.vGm.vGH.pp += 3 * undo;
-        if (xx >= 0) {
-        $rootScope.vGm.vP[xx].pp += 3 * undo;  
-        $rootScope.vGm.vP[xx].y3p += 1 * undo;   
-        $rootScope.vGm.vP[xx].rr3p = Math.round(( $rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
+        if (xx < 0) { 
+          $rootScope.vGm.vGH.pp += 3 * undo; 
+        } else {
+          $rootScope.vGm.vP[xx].pp += 3 * undo;  
+          $rootScope.vGm.vP[xx].y3p += 1 * undo;   
+          $rootScope.vGm.vP[xx].rr3p = Math.round(( $rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
         }
         break;
       case 'x3p':
-        if (xx >= 0) {
-        $rootScope.vGm.vP[xx].x3p += 1 * undo;  
-        $rootScope.vGm.vP[xx].rr3p = Math.round(( $rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
+        if (xx < 0) { 
+          // $rootScope.vGm.vGH.pp += 0 * undo; 
+        } else {
+          $rootScope.vGm.vP[xx].x3p += 1 * undo;  
+          $rootScope.vGm.vP[xx].rr3p = Math.round(( $rootScope.vGm.vP[xx].y3p / ($rootScope.vGm.vP[xx].x3p + $rootScope.vGm.vP[xx].y3p)) * 100);
         }
         break;
       case 'yft':
-        $rootScope.vGm.vGH.pp += 1 * undo;  
-        if (xx >= 0) {
-        $rootScope.vGm.vP[xx].pp += 1 * undo; 
-        $rootScope.vGm.vP[xx].yft += 1 * undo;   
-        $rootScope.vGm.vP[xx].rrft = Math.round(( $rootScope.vGm.vP[xx].yft / ($rootScope.vGm.vP[xx].xft + $rootScope.vGm.vP[xx].yft)) * 100);
+        if (xx < 0) { 
+          $rootScope.vGm.vGH.pp += 1 * undo; 
+        } else {
+          $rootScope.vGm.vP[xx].pp += 1 * undo; 
+          $rootScope.vGm.vP[xx].yft += 1 * undo;   
+          $rootScope.vGm.vP[xx].rrft = Math.round(( $rootScope.vGm.vP[xx].yft / ($rootScope.vGm.vP[xx].xft + $rootScope.vGm.vP[xx].yft)) * 100);
         }
         break;
       case 'xft':
-        if (xx >= 0) {
-        $rootScope.vGm.vP[xx].xft += 1 * undo;   
-        $rootScope.vGm.vP[xx].rrft = Math.round(( $rootScope.vGm.vP[xx].yft / ($rootScope.vGm.vP[xx].xft + $rootScope.vGm.vP[xx].yft)) * 100);
+        if (xx < 0) { 
+          // $rootScope.vGm.vGH.pp += 0 * undo; 
+        } else {
+          $rootScope.vGm.vP[xx].xft += 1 * undo;   
+          $rootScope.vGm.vP[xx].rrft = Math.round(( $rootScope.vGm.vP[xx].yft / ($rootScope.vGm.vP[xx].xft + $rootScope.vGm.vP[xx].yft)) * 100);
         }
         break;
       case 'ast':
-        if (xx >= 0) {
-        $rootScope.vGm.vP[xx].ast += 1 * undo;   
+        if (xx < 0) { 
+          // $rootScope.vGm.vGH.pp += 0 * undo; 
+        } else {
+          $rootScope.vGm.vP[xx].ast += 1 * undo;   
         }
         break;
       case 'stl':
-        if (xx >= 0) {
-        $rootScope.vGm.vP[xx].stl += 1 * undo;   
+        if (xx < 0) { 
+          // $rootScope.vGm.vGH.pp += 0 * undo; 
+        } else {
+          $rootScope.vGm.vP[xx].stl += 1 * undo;   
         }
         break;
       case 'blk':
@@ -245,42 +255,55 @@ $scope.pTally = function (tt, xx) {
         }
         break;
       case 'drb':
-        if (xx >= 0) {
-        $rootScope.vGm.vP[xx].drb += 1 * undo;   
+        if (xx < 0) { 
+          // $rootScope.vGm.vGH.pp += 0 * undo; 
+        } else {
+          $rootScope.vGm.vP[xx].drb += 1 * undo;   
         }
         break;
       case 'orb':
-        if (xx >= 0) {
-        $rootScope.vGm.vP[xx].orb += 1 * undo;   
+        if (xx < 0) { 
+          // $rootScope.vGm.vGH.pp += 0 * undo; 
+        } else {
+          $rootScope.vGm.vP[xx].orb += 1 * undo;   
         }
         break;
       case 'tov':
-        if (xx >= 0) {
-        $rootScope.vGm.vP[xx].tov += 1 * undo;   
+        if (xx < 0) { 
+          // $rootScope.vGm.vGH.pp += 0 * undo; 
+        } else {
+          $rootScope.vGm.vP[xx].tov += 1 * undo;   
         }
         break;
       case 'pf':
-        $rootScope.vGm.vGH.ff += 1 * undo; 
-        if (xx >= 0) {
-        $rootScope.vGm.vP[xx].pf += 1 * undo;  
+        if (xx < 0) { 
+          $rootScope.vGm.vGH.ff += 1 * undo; 
+        } else {
+          $rootScope.vGm.vP[xx].pf += 1 * undo;  
         }
         break;
       case 'tf':
-        if (xx >= 0) {
-        $rootScope.vGm.vP[xx].tf += 1 * undo;    
+        if (xx < 0) { 
+          // $rootScope.vGm.vGH.pp += 0 * undo; 
+        } else {
+          $rootScope.vGm.vP[xx].tf += 1 * undo;    
         }
         break;
       case 'v2p':
         $rootScope.vGm.vGV.pp += 2 * undo;
+        $scope.undoCB = false; 
         break;
       case 'v3p':
         $rootScope.vGm.vGV.pp += 3 * undo;
+        $scope.undoCB = false; 
         break;
       case 'vft':
         $rootScope.vGm.vGV.pp += 1 * undo;
+        $scope.undoCB = false; 
         break;
       case 'vpf':
         $rootScope.vGm.vGV.ff += 1 * undo;
+        $scope.undoCB = false; 
         break;
       default:
         break;
