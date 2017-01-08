@@ -363,7 +363,7 @@ angular.module('starter', ['ionic'])
       $rootScope.vGm.vP[xx].onc2 = false;
       $scope.undoCB = false;
       $scope.ttIdx = '.';
-      $rootScope.appLog = ' >> ' + tt +  $rootScope.vGm.vP[xx].Nu + ' :  ' + $rootScope.appLog; //  
+      $rootScope.appLog = ' >' + tt +  $rootScope.vGm.vP[xx].Nu + ':  ' + $rootScope.appLog; //  
       $rootScope.appLog = $rootScope.appLog.substring(0, 20);
     }
 
@@ -490,6 +490,7 @@ angular.module('starter', ['ionic'])
         $scope.undoCB = false;
         break;
       default:
+        $rootScope.appLog = ">";
         break;
     }
 
