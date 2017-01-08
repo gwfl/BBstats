@@ -160,12 +160,12 @@ if (localStorage.getItem('vGm') !== null) {
 }
 
 localStorage.setItem('vGm', JSON.stringify($rootScope.vGm));   
-  $rootScope.appLog += ".run";
+//  $rootScope.appLog += ".run";
 
 })    //  end .run
 
 .controller('AppCtrl', function($scope, $rootScope) {
-  $rootScope.appLog += ".AppC";
+//  $rootScope.appLog += ".AppC";
   
 $scope.tglundoCB = function () {
   $scope.undoCB = !$scope.undoCB;
@@ -177,10 +177,12 @@ $scope.pTally = function (tt, xx) {
 
   if (xx < 0) {
     $scope.ttIdx = tt;
+    $rootScope.appLog += " .pT:" + xx + tt;
   } else {
     $rootScope.vGm.vP[xx].onc2 = false;
     $scope.undoCB = false; 
     $scope.ppIdx = -1;
+      $rootScope.appLog += ' >> ' + $rootScope.vGm.vGH.Nu[xx] + ' :  ' + tt; //  
   }
   
     switch (tt) {
@@ -310,7 +312,6 @@ $scope.pTally = function (tt, xx) {
     }
 
   localStorage.setItem('vGm', JSON.stringify($rootScope.vGm));   
-    $rootScope.appLog += ".pT:" + xx + tt;
 };
 
 $scope.resetLS = function() {
