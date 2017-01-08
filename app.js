@@ -182,7 +182,7 @@ $scope.pTally = function (tt, xx) {
     $rootScope.vGm.vP[xx].onc2 = false;
     $scope.undoCB = false; 
     $scope.ppIdx = -1;
-      $rootScope.appLog += ' >> ' + $rootScope.vGm.vP.Nu[xx] + ' :  ' + tt; //  
+      $rootScope.appLog += ' >> ' + $rootScope.vGm.vP[xx].Nu + ' :  ' + tt; //  
   }
   
     switch (tt) {
