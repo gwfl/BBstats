@@ -39,33 +39,32 @@
            <button ng-click="pTally('x2p', -1)"  class="button   button-energized"> 2p.x </button>
    &nbsp;  <button ng-click="pTally('x3p', -1)"  class="button   button-energized"> 3p.x </button>
    &nbsp;  <button ng-click="pTally('xft', -1)"  class="button   button-energized"> ft.x </button>
+
+<br><br>  <button class="button button-small button-stable" ng-click="tglundoCB()">  
+      <input type="checkbox" ng-model="undoCB"> undo </button>
+   &nbsp;  <button   class="button  button-small button-light">  </button>
+   &nbsp;  <button   class="button  button-small button-light">  </button>
 </div>
 <div class="col text-center">
              <button ng-click="pTally('ast', -1)"  class="button   button-royal"> AST </button>
      &nbsp;  <button ng-click="pTally('stl', -1)"  class="button   button-royal"> STL </button>
      &nbsp;  <button ng-click="pTally('blk', -1)"  class="button   button-royal"> BLK </button>          
-     <br>  <br>  <br>
-          <button ng-click="pTally('tov', -1)"  class="button  button-small   button-assertive"> TOV </button>
-        &nbsp;   &nbsp;   &nbsp;          <button ng-click="pTally('pf', -1)"  class="button  button-small   button-energized"> p.F </button>
+     &nbsp;     <button ng-click="pTally('drb', -1)"  class="button   button-balanced"> d.RB </button>
+     <br> <span class="button button-small button-light">  {{ appLog }}  </span>  
+    <br><br> <button ng-click="pTally('tov', -1)"  class="button  button-small   button-assertive"> TOV </button>
+     &nbsp;   &nbsp;   &nbsp;          <button ng-click="pTally('pf', -1)"  class="button  button-small   button-energized"> p.F </button>
      &nbsp;   &nbsp;  &nbsp;             <button ng-click="pTally('tf', -1)"  class="button  button-small   button-assertive"> t.F </button>
+     &nbsp;   &nbsp;  &nbsp; <button ng-click="pTally('orb', -1)"  class="button  button-small   button-royal"> o.RB </button>     
 </div>
-<div class="col-10 text-center">
-            <button ng-click="pTally('drb', -1)"  class="button   button-balanced"> d.RB </button>
-     <br>  <br>  <br>
-            <button ng-click="pTally('orb', -1)"  class="button  button-small   button-royal"> o.RB </button>     
-</div>
-  <div class="col-20 text-center">  
+  <div class="col text-center">  
       <span class="button-small"> Opponent: </span>
-<br>      <button ng-click="pTally('v2p', -1)" class="button button-small button-dark">2P</button>
-      <span class="button-small">  &nbsp;  </span>  
-       <button ng-click="pTally('v3p', -1)" class="button button-small button-dark">3P</button>
+<br> <button ng-click="pTally('v2p', -1)" class="button button-small button-dark">2P</button>
+     &nbsp;   &nbsp; 
+     <button ng-click="pTally('v3p', -1)" class="button button-small button-dark">3P</button>
  <br><br>          <button ng-click="pTally('vft', -1)" class="button button-small button-dark">1P</button>
-    
-<br><br>  <button class="button button-small button-stable" ng-click="tglundoCB()">  
-      <input type="checkbox" ng-model="undoCB"> undo </button>
+     &nbsp;   &nbsp;   <button ng-click="pTally('vpf', -1)" class="button button-small button-dark">pf:<br> {{vGm.vGV.ff}}</button>
 </div>
 </div>
-<div class="row-fluid">  <span class="button button-small button-light">  {{ appLog }}  </span></div>
       </ion-item>
     </ion-list>
 
