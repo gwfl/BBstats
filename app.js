@@ -356,7 +356,7 @@ angular.module('starter', ['ionic'])
       undo = 1;
     }
 
-    $rootScope.appLog = ' >' + tt + ':  ' + $rootScope.appLog.substring(0,6); //  
+    $rootScope.appLog = '> ' + tt; //  
     if (xx < 0) {
       $scope.ttIdx = tt;
     } else {
