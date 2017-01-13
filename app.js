@@ -364,9 +364,9 @@ angular.module('starter', ['ionic'])
       $scope.undoCB = false;
       $scope.ttIdx = '.';
       $rootScope.appLog = ' >' + tt +  $rootScope.vGm.vP[xx].Nu + ':  ' + $rootScope.appLog; //  
-      $rootScope.appLog = $rootScope.appLog.substring(0, 20);
     }
-
+    $rootScope.appLog = $rootScope.appLog.substring(0, 20);
+    
     switch (tt) {
       case 'y2p':
         if (xx < 0) {
