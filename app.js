@@ -358,14 +358,12 @@ angular.module('starter', ['ionic'])
 
     if (xx < 0) {
       $scope.ttIdx = tt;
-      $rootScope.appLog += " .h:" + tt;
     } else {
       $rootScope.vGm.vP[xx].onc2 = false;
       $scope.undoCB = false;
       $scope.ttIdx = '.';
-      $rootScope.appLog = ' >' + tt +  $rootScope.vGm.vP[xx].Nu + ':  ' + $rootScope.appLog; //  
     }
-    $rootScope.appLog = $rootScope.appLog.substring(0, 20);
+    $rootScope.appLog = ' >' + tt + $rootScope.vGm.vP[xx].Nu + ':  ' + $rootScope.appLog.substring(0,6); //  
     
     switch (tt) {
       case 'y2p':
