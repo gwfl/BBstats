@@ -356,14 +356,15 @@ angular.module('starter', ['ionic'])
       undo = 1;
     }
 
+    $rootScope.appLog = ' >' + tt + ':  ' + $rootScope.appLog.substring(0,6); //  
     if (xx < 0) {
       $scope.ttIdx = tt;
     } else {
       $rootScope.vGm.vP[xx].onc2 = false;
       $scope.undoCB = false;
       $scope.ttIdx = '.';
+      $rootScope.appLog +=  ' :' + $rootScope.vGm.vP[xx].Nu //  
     }
-    $rootScope.appLog = ' >' + tt + $rootScope.vGm.vP[xx].Nu + ':  ' + $rootScope.appLog.substring(0,6); //  
     
     switch (tt) {
       case 'y2p':
