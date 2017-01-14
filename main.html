@@ -93,9 +93,9 @@
 </div>
 </div>
   <div class="row-fluid button button-small button-light"> 
- 2p:  {{ bvP.y2p }}-{{ bvP.x2p }} [{{ bvP.rrfg }}%]
-    &nbsp;&nbsp; 3p: {{ bvP.y3p }}-{{ bvP.x3p }} [{{ bvP.rr3p }}%]
-    &nbsp;&nbsp; ft: {{ bvP.yft }}-{{ bvP.xft }} [{{ bvP.rrft }}%] 
+    2p:  {{ bvP.y2p }}/{{ bvP.y2p + bvP.x2p }} [{{ bvP.rrfg }}%]
+    &nbsp;&nbsp; 3p: {{ bvP.y3p }}/{{bvP.y3p + bvP.x3p }} [{{ bvP.rr3p }}%]
+    &nbsp;&nbsp; ft: {{ bvP.yft }}/{{bvP.yft + bvP.xft }} [{{ bvP.rrft }}%] 
     <br>ast: {{ bvP.ast }} &nbsp;stl: {{ bvP.stl }} 
     &nbsp;blk: {{ bvP.blk }}  &nbsp;d.Rb: {{ bvP.drb }}  &nbsp;o.Rb: {{ bvP.orb }} &nbsp;t.F: {{ bvP.tf }}
   </div>
