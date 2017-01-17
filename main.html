@@ -13,17 +13,14 @@
 <div class="row">   <div class="col-25 text-center">
       <span  ng-repeat="onCvP in vGm.vP"  ng-show="onCvP.onc">   
 <br>      <button class="button button-small button-calm" ng-click="pTally(ttIdx, $index)">  {{onCvP.Nm}} &nbsp;{{onCvP.Nu}} </button>
-<br>   <input type="checkbox" ng-model="onCvP.q1">     
- <input type="checkbox" ng-model="onCvP.q2">     &nbsp;  
- <input type="checkbox" ng-model="onCvP.q3">      
- <input type="checkbox" ng-model="onCvP.q4">     
+<br>   <strong> {{ onCvP.pp }} &nbsp; {{ onCvP.pf }} &nbsp; {{ onCvP.tov }}    </strong>
 <br>    
 <label class="toggle toggle-small toggle-calm">
               <input type="checkbox" ng-model="onCvP.onc" ng-change="pTally('-', -1)" >
               <div class="track">
                   <div class="handle"></div>
               </div>
-          </label>&nbsp;&nbsp; <strong> {{ onCvP.pp }}  &nbsp;   {{ onCvP.pf }}  &nbsp;   {{ onCvP.tov }}    </strong>
+          </label> 
 <br> </span>
    <br> <span class="button button-small button-light">  {{ appLog }}  </span>  
 </div>
