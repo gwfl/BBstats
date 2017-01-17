@@ -66,30 +66,34 @@
     <ion-list>
       <ion-item class="card" ng-repeat="bvP in vGm.vP">   
       
-<div class="row">   <div class="col-33">
+<div class="row">   <div class="col-20 text-center">
       <span class="button button-small button-stable">  {{bvP.Nm}}  {{bvP.Nu}} </span>
-<br>    
+<br><br>    
 <label class="toggle toggle-small toggle-calm">
               <input type="checkbox" ng-model="bvP.onc" ng-change="pTally('+', -1)" >
               <div class="track">
                   <div class="handle"></div>
               </div>
           </label>  
-<br><br>    <input type="checkbox" ng-model="bvP.q1"> 
+  </div>
+   <div class="col text-center">
+<span class="button button-small button-light">       
+<strong>Pts: {{ bvP.pp }}  &nbsp;  pf: {{ bvP.pf }}  &nbsp; tov: {{ bvP.tov }}</strong>  &nbsp;  
+  </span>
+<br>    <input type="checkbox" ng-model="bvP.q1"> 
     <input type="checkbox" ng-model="bvP.q2">   &nbsp;
     <input type="checkbox" ng-model="bvP.q3">       
     <input type="checkbox" ng-model="bvP.q4">     
   </div>
-   <div class="col text-center">
+</div>
+<div class="row-fluid">
 <span class="button button-small button-light">       
-<strong>P: {{ bvP.pp }}  &nbsp;  pf: {{ bvP.pf }}  &nbsp; tov: {{ bvP.tov }}</strong>  &nbsp;  
-<br>  2:  {{bvP.y2p}}/{{bvP.y2p + bvP.x2p}} [{{ bvP.rrfg }}%]
-    &nbsp;&nbsp; 3: {{ bvP.y3p }}/{{bvP.y3p + bvP.x3p }} [{{ bvP.rr3p }}%]
-    &nbsp;&nbsp; 1: {{ bvP.yft }}/{{bvP.yft + bvP.xft }} [{{ bvP.rrft }}%] 
+  2p:  {{bvP.y2p}}/{{bvP.y2p + bvP.x2p}} [{{ bvP.rrfg }}%]
+    &nbsp;&nbsp; 3p: {{ bvP.y3p }}/{{bvP.y3p + bvP.x3p }} [{{ bvP.rr3p }}%]
+    &nbsp;&nbsp; ft: {{ bvP.yft }}/{{bvP.yft + bvP.xft }} [{{ bvP.rrft }}%] 
     <br>ast: {{ bvP.ast }} &nbsp;stl: {{ bvP.stl }}
-    &nbsp;blk: {{ bvP.blk }}  &nbsp; d.R: {{ bvP.drb }}  &nbsp;o.R: {{ bvP.orb }} &nbsp; t.F: {{ bvP.tf }}
+    &nbsp;blk: {{ bvP.blk }}  &nbsp; d.Rb: {{ bvP.drb }}  &nbsp;o.Rb: {{ bvP.orb }} &nbsp; t.F: {{ bvP.tf }}
   </span>
-  </div>
 </div>
 
       </ion-item>
