@@ -36,12 +36,12 @@
           <button ng-click="pTally('drb', -1)"  class="button   button-balanced"> d.RB </button>
      &nbsp;   &nbsp;  &nbsp; <button ng-click="pTally('orb', -1)"  class="button  button-small   button-royal"> o.RB </button>     
 
-    <br><br>         <button ng-click="pTally('ast', -1)"  class="button   button-royal"> AST </button>
-     &nbsp;  <button ng-click="pTally('stl', -1)"  class="button   button-royal"> STL </button>
-    <br><br>          <button ng-click="pTally('blk', -1)"  class="button   button-royal"> BLK </button>          
-     &nbsp;   &nbsp;  &nbsp;  <button ng-click="pTally('tov', -1)"  class="button  button-small   button-assertive"> TOV </button>
-<br><br>              <button ng-click="pTally('pf', -1)"  class="button  button-small   button-energized"> p.F </button>
-     &nbsp;   &nbsp;  &nbsp;             <button ng-click="pTally('tf', -1)"  class="button  button-small   button-assertive"> t.F </button>
+    <br><br>         <button ng-click="pTally('ast', -1)"  class="button    button-small   button-royal"> AST </button>
+     &nbsp; &nbsp;  <button ng-click="pTally('stl', -1)"  class="button  button-small     button-royal"> STL </button>
+     &nbsp; &nbsp;      <button ng-click="pTally('blk', -1)"  class="button   button-small    button-royal"> BLK </button>          
+  <br><br>      <button ng-click="pTally('tov', -1)"  class="button  button-small   button-assertive"> TOV </button>
+       &nbsp;   &nbsp;  &nbsp;        <button ng-click="pTally('pf', -1)"  class="button  button-small   button-energized"> p.F </button>
+  <br><br>               <button ng-click="pTally('tf', -1)"  class="button  button-small   button-assertive"> t.F </button>
 </div>
   <div class="col-20 text-center">  
       <span class="button-small"> Opp: </span>
@@ -50,12 +50,13 @@
  <br><br>          <button ng-click="pTally('vft', -1)" class="button button-small button-dark">1P</button>
       <br><br>  <button ng-click="pTally('vpf', -1)" class="button button-small button-dark">pf: {{vGm.vGV.ff}}</button>
 
-<br><br>     <br><br>     <br><br> 
+<br><br> <span class="button button-small button-stable">  {{ appLog }}  </span>  
+
+<br><br>  
      
   <button class="button button-small button-stable" ng-click="tglundoCB()">  
       <input type="checkbox" ng-model="undoCB"> undo </button>
-  
-   <br><br><br><br><br><br> <span class="button button-small button-stable">  {{ appLog }}  </span>  
+
 </div>
 </div>
 
