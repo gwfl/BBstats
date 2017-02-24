@@ -38,6 +38,14 @@ angular.module('BBstatsH', ['ionic'])
       })
   */
 
+  .state('app.roster', {
+    url: "/roster",
+    views: {
+      'menuContent' :{
+        templateUrl: "roster.html"
+      }
+    }
+  })
   .state('app.main', {
     url: "/main",
     views: {
