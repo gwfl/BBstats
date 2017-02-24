@@ -1,0 +1,51 @@
+<ion-view title="Game Roster">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-calm">{{vGm.vGH.pp}}</button>
+    <span class="button button-stable"> </span>
+    <button class="button button-dark">{{vGm.vGV.pp}}</button>
+  </ion-nav-buttons>
+
+<ion-content class="has-header">
+
+<div class="row">   <div class="col text-center">
+      <span  ng-repeat="onCvP in vGm.vP"  ng-show="onCvP.onc">   
+<br>      <button class="button button-small button-calm" ng-click="pTally(ttIdx, $index)">  {{onCvP.Nm}} &nbsp;{{onCvP.Nu}} </button>
+<br>    <input type="checkbox" ng-model="onCvP.q1">    &nbsp;
+    <input type="checkbox" ng-model="onCvP.q2">   &nbsp;   &nbsp;
+    <input type="checkbox" ng-model="onCvP.q3">     &nbsp;    
+    <input type="checkbox" ng-model="onCvP.q4">     
+<br>
+<label class="toggle toggle-small toggle-calm">
+              <input type="checkbox" ng-model="onCvP.onc" ng-change="pTally('-', -1)" >
+              <div class="track">
+                  <div class="handle"></div>
+              </div>
+          </label> 
+    &nbsp;  &nbsp;   <strong> {{ onCvP.pp }}  </strong> 
+<br> </span>
+</div>
+<div class="col text-center">
+      <span  ng-repeat="onCvP in vGm.vP"  ng-hide="onCvP.onc">   
+<br>      <button class="button button-small button-stable" ng-click="pTally(ttIdx, $index)">  {{onCvP.Nm}} &nbsp;{{onCvP.Nu}} </button>
+<br>    <input type="checkbox" ng-model="onCvP.q1">    &nbsp;
+    <input type="checkbox" ng-model="onCvP.q2">   &nbsp;   &nbsp;
+    <input type="checkbox" ng-model="onCvP.q3">     &nbsp;    
+    <input type="checkbox" ng-model="onCvP.q4">     
+<br>
+<label class="toggle toggle-small toggle-calm">
+              <input type="checkbox" ng-model="onCvP.onc" ng-change="pTally('-', -1)" >
+              <div class="track">
+                  <div class="handle"></div>
+              </div>
+          </label> 
+<br> </span>
+</div>
+</div>
+
+  <h2> </h2>  <button ng-click="resetLS()"  class="button button-small button-stable">reset </button>
+
+  </ion-content>
+</ion-view>
