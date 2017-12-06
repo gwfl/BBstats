@@ -61,7 +61,7 @@ angular.module('BBstatsH', ['ionic'])
 
 })
 
-.run(function($ionicPlatform, $rootScope) {
+.run(function($ionicPlatform, $rootScope, navigator) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -340,6 +340,27 @@ angular.module('BBstatsH', ['ionic'])
     localStorage.setItem('vGm', JSON.stringify($rootScope.vGm));
 //    $rootScope.appLog += ".run";
 
+  var GPSoptions = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
+function GPSsuccess(pos) {
+  var crd = pos.coords;
+
+  $rootScope.GPSlat = crd.latitude;
+  $rootScope.GPSlon = crd.longitude;
+  
+} //  asdfjasdf
+
+function GPSerror(err) {
+  $rootScope.warn(`ERROR(${err.code}): ${err.message}`);
+} // asdfjadsf
+
+navigator.geolocation.getCurrentPosition(GPSsuccess, GPSerror, GPSoptions);
+ 
+  
   }) //  end .run
 
 .controller('AppCtrl', function($scope, $rootScope) {
