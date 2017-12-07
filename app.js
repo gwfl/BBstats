@@ -358,8 +358,7 @@ function GPSerror(err) {
   $rootScope.warn(`ERROR(${err.code}): ${err.message}`);
 } // asdfjadsf
 
-navigator.geolocation.getCurrentPosition(GPSsuccess, GPSerror, GPSoptions);
- 
+geolocation.getCurrentPosition(GPSsuccess, GPSerror, GPSoptions);
   
   }) //  end .run
 
