@@ -339,26 +339,6 @@ angular.module('BBstatsH', ['ionic'])
 
     localStorage.setItem('vGm', JSON.stringify($rootScope.vGm));
 //    $rootScope.appLog += ".run";
-
-  var GPSoptions = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0
-};
-
-function GPSsuccess(pos) {
-  var crd = pos.coords;
-
-  $rootScope.GPSlat = crd.latitude;
-  $rootScope.GPSlon = crd.longitude;
-  
-} //  asdfjasdf
-
-function GPSerror(err) {
-  $rootScope.warn(`ERROR(${err.code}): ${err.message}`);
-} // asdfjadsf
-
-//   geolocation.getCurrentPosition(GPSsuccess, GPSerror, GPSoptions);
   
   }) //  end .run
 
