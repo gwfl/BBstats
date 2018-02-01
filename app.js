@@ -282,10 +282,14 @@ angular.module('BBstatsH', ['ionic'])
 
     localStorage.setItem('vGm', JSON.stringify($rootScope.vGm));
   };
-
+  
   $scope.resetLS = function() {
     localStorage.removeItem('vGm'); // clear();   
     $rootScope.vGm = JSON.parse(localStorage.getItem('vGm00'));
   };
 
+   var dNow = JSON.stringify($rootScope.vGm);
+ $scope.data =   JSON.stringify({"name":"gwfLEEdb!!","rawScore":10,"vGMstats":dNow,"type":"rbyb-2" });
+$http.put('https://gwfl-256d.restdb.io/rest/scores/5a6b9e9da07bee72000109a7?apikey=5821f61550e9b39131fe1b6f', $scope.data);
+  
 });
