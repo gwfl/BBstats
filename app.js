@@ -127,7 +127,7 @@ angular.module('BBstatsH', ['ionic'])
   
   }) //  end .run
 
-.controller('AppCtrl', function($scope, $rootScope) {
+.controller('AppCtrl', function($scope, $rootScope, $http) {
 //  $rootScope.appLog += ".AppC";
 
   $scope.tglundoCB = function() {
