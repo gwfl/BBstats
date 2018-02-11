@@ -6,8 +6,7 @@ angular.module('BBstatsH', ['ionic'])
     .state('app', {
     url: "/app",
     abstract: true,
-    templateUrl: "menu.html",
-    controller: 'AppCtrl'
+    templateUrl: "menu.html"
   })
 
   /* 
@@ -42,7 +41,8 @@ angular.module('BBstatsH', ['ionic'])
     url: "/roster",
     views: {
       'menuContent' :{
-        templateUrl: "roster.html"
+        templateUrl: "roster.html",
+    controller: 'AppCtrl'
       }
     }
   })
