@@ -1,12 +1,7 @@
 var ionApp = angular.module('BBstatsH', ['ionic', 'ngResource']);
 
 ionApp.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
-    .state('app', {
-    url: "/app",
-    abstract: true,
-    templateUrl: "menu.html"
-  })
+ $stateProvider
   .state('app.main', {
     url: "/main",
     views: {
@@ -16,6 +11,13 @@ ionApp.config(function($stateProvider, $urlRouterProvider) {
       }
     }
   })
+  .state('app', {
+    url: "/app",
+    abstract: true,
+    templateUrl: "menu.html"
+  });
+/*  
+  })
   .state('app.roster', {
     url: "/roster",
     views: {
@@ -24,8 +26,8 @@ ionApp.config(function($stateProvider, $urlRouterProvider) {
         controller: 'AppCtrl'
       }
     }
-  });
-    // if none of the above states are matched, use this as the fallback
+*/    
+  // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/main');
 });
 
