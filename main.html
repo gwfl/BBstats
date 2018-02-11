@@ -62,5 +62,58 @@
       </ion-item>
     </ion-list>
 
+
+    <ion-list>
+      <ion-item class="card">   
+<br>
+<div class="row" ng-repeat="bvP in vGm.Nu" ng-show="vGm.onc[$index]">   <div class="col-20 text-center">
+      <span class="button button-small button-calm">  {{vGm.Nm[$index]}}  {{vGm.Nu[$index]}} </span>
+<br><span class="button button-small button-light">       
+<strong>Pts: {{ vGm.pp[$index] }}  &nbsp;  pf: {{ vGm.pf[$index] }}  &nbsp; tov: {{ vGm.tov[$index] }}</strong>  &nbsp;  
+  </span>
+<br><br>
+  </div>
+   <div class="col text-center">
+<div class="row-fluid">
+<span class="button button-small button-light">       
+  2p:  {{vGm.y2p[$index]}}/{{vGm.y2p[$index] + vGm.x2p[$index]}} [{{ vGm.rrfg[$index] }}%]
+    &nbsp;&nbsp; 3p: {{ vGm.y3p[$index] }}/{{vGm.y3p[$index] + vGm.x3p[$index] }} [{{ vGm.rr3p[$index] }}%]
+    &nbsp;&nbsp; ft: {{ vGm.yft[$index] }}/{{vGm.yft[$index] + vGm.xft[$index] }} [{{ vGm.rrft[$index] }}%] 
+    <br>ast: {{ vGm.ast[$index] }} &nbsp;stl: {{ vGm.stl[$index] }}
+    &nbsp;blk: {{ vGm.blk[$index] }}  &nbsp; d.Rb: {{ vGm.drb[$index] }}  &nbsp;o.Rb: {{ vGm.orb[$index] }} &nbsp; t.F: {{ vGm.tf[$index] }}
+  </span>
+</div>
+
+  </div>
+</div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item class="card">   
+<br>
+<div class="row" ng-repeat="bvP in vGm.Nu" ng-hide="vGm.onc[$index]">   <div class="col-20 text-center">
+      <span class="button button-small button-stable">  {{vGm.Nm[$index]}}  {{vGm.Nu[$index]}} </span>
+<br><span class="button button-small button-light">       
+<strong>Pts: {{ vGm.pp[$index] }}  &nbsp;  pf: {{ vGm.pf[$index] }}  &nbsp; tov: {{ vGm.tov[$index] }}</strong>  &nbsp;  
+  </span>
+<br><br>
+  </div>
+   <div class="col text-center">
+<div class="row-fluid">
+<span class="button button-small button-light">       
+  2p:  {{vGm.y2p[$index]}}/{{vGm.y2p[$index] + vGm.x2p[$index]}} [{{ vGm.rrfg[$index] }}%]
+    &nbsp;&nbsp; 3p: {{ vGm.y3p[$index] }}/{{vGm.y3p[$index] + vGm.x3p[$index] }} [{{ vGm.rr3p[$index] }}%]
+    &nbsp;&nbsp; ft: {{ vGm.yft[$index] }}/{{vGm.yft[$index] + vGm.xft[$index] }} [{{ vGm.rrft[$index] }}%] 
+    <br>ast: {{ vGm.ast[$index] }} &nbsp;stl: {{ vGm.stl[$index] }}
+    &nbsp;blk: {{ vGm.blk[$index] }}  &nbsp; d.Rb: {{ vGm.drb[$index] }}  &nbsp;o.Rb: {{ vGm.orb[$index] }} &nbsp; t.F: {{ vGm.tf[$index] }}
+  </span>
+</div>
+
+  </div>
+</div>
+      </ion-item>
+    </ion-list>
+   
   </ion-content>
 </ion-view>
