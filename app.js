@@ -106,7 +106,7 @@ var timer = function() {
     $rootScope.appLog += ".t1 ";
     // https://gwfl-256d.restdb.io/rest/scores/5a6b9e9da07bee72000109a7?apikey=5821f61550e9b39131fe1b6f
     // https://api.airtable.com/v0/app0hohtq4b1nM0Kb/Players/recKbHjCbXLbJuSuJ?api_key=key66fQg5IghIIQmb
-  $http.get('https://gwfl-256d.restdb.io/rest/scores/5a6b9e9da07bee72000109a7?apikey=5821f61550e9b39131fe1b6f') 
+  $http.get('https://api.airtable.com/v0/app0hohtq4b1nM0Kb/Players/recKbHjCbXLbJuSuJ?api_key=key66fQg5IghIIQmb') 
     .success(function (jsonData) {
       $scope.vGm = jsonData.vGMstats;
   });
