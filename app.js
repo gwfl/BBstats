@@ -42,7 +42,11 @@ ionApp.factory('dbSvc', function ($resource, $http) {
     $http.get('https://api.airtable.com/v0/app0hohtq4b1nM0Kb/Players/recKbHjCbXLbJuSuJ?api_key=key66fQg5IghIIQmb')    // /recKbHjCbXLbJuSuJ
       .success(function (jsonData) {
         localStorage.setItem('ls_vGM00', JSON.stringify(jsonData.fields.vGMstats));
-    });
+    });   
+//     $http.get('https://api.airtable.com/v0/app0hohtq4b1nM0Kb/Skins?api_key=key66fQg5IghIIQmb')
+//    .success(function (jData) {
+//      $rootScope.rawS = JSON.parse(JSON.stringify(jData.records));
+//    });  // end http.get
   };
 
   var _allSongs = function () {
@@ -110,8 +114,12 @@ var timer = function() {
     .success(function (jsonData) {
       $scope.vGm = jsonData.vGMstats;
   });
-  
-  $timeout(timer, 5000);    // 1 second delay
+//  $http.get('https://api.airtable.com/v0/app0hohtq4b1nM0Kb/Skins?api_key=key66fQg5IghIIQmb')
+//    .success(function (jData) {
+//      $rootScope.rawS = JSON.parse(JSON.stringify(jData.records));
+//    });  // end http.get  
+
+ $timeout(timer, 5000);    // 1 second delay
 };
         
 $timeout(timer, 250);  
