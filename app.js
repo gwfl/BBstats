@@ -46,7 +46,7 @@ ionApp.run( function ($rootScope, $http, $ionicPlatform) {
 
 })
 
-.controller('AppCtrl', function($rootScope, $scope, $http) {
+ionApp.controller('AppCtrl', function($rootScope, $scope, $http) {
 
   //
 
