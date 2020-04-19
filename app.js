@@ -31,43 +31,6 @@ ionApp.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/app/main');
 });
 
-ionApp.factory('dbSvc', function ($resource, $http) {
-
-  var _ngr = function () {
-    var url = 'https://gwfl-256d.restdb.io/rest/songlist/:id?apikey=5821f61550e9b39131fe1b6f';
-    return $resource(url);
-  };
-
-  var _initRoster = function () { 
-    $http.get('https://api.airtable.com/v0/app0hohtq4b1nM0Kb/Players/recKbHjCbXLbJuSuJ?api_key=key66fQg5IghIIQmb')    // /recKbHjCbXLbJuSuJ
-      .success(function (jsonData) {
-        localStorage.setItem('ls_vGM00', JSON.stringify(jsonData.fields.vGMstats));
-    });   
-//     $http.get('https://api.airtable.com/v0/app0hohtq4b1nM0Kb/Skins?api_key=key66fQg5IghIIQmb')
-//    .success(function (jData) {
-//      $rootScope.rawS = JSON.parse(JSON.stringify(jData.records));
-//    });  // end http.get
-  };
-
-  var _allSongs = function () {
-//    return $resource('https://api.airtable.com/v0/app0hohtq4b1nM0Kb/Players?api_key=key66fQg5IghIIQmb');
-    return $resource('https://gwfl-256d.restdb.io/rest/songlist?apikey=5821f61550e9b39131fe1b6f');
-  };
-
-  var _scoreById = function () {
-    var url = 'https://gwfl-256d.restdb.io/rest/scores/:recId?apikey=5821f61550e9b39131fe1b6f';    //  5a6b9e9da07bee72000109a7 
-    return $resource(url,      
-    { recId: '@_id' }, 
-    { update: { method: 'PUT' } }
-  )};
-    
-  return {
-    initRoster: _initRoster(),
-    scoreById: _scoreById,
-    allSongs: _allSongs().query()
-  };
-});
-
 ionApp.run( function ($rootScope, $http, dbSvc, $ionicPlatform) {
 
   $ionicPlatform.ready(function() {
@@ -98,30 +61,22 @@ ionApp.run( function ($rootScope, $http, dbSvc, $ionicPlatform) {
     // Yippee! We can use localStorage awesomeness
     $rootScope.appLog = ".r0 ";
   }
-  // localStorage.removeItem('ls_vGMstats');
-  dbSvc.initRoster;
-  // $rootScope.appLog += ".r" + localStorage.getItem('ls_vGM00');
 
-});      //  end .run
+  $rootScope.accGroup = [];  // grp00={ name: "__", isShown: false };
+//  for (hh = 0; hh < 20; hh++) {        
+//    $rootScope.accGroup.push(JSON.parse(JSON.stringify(tS00)));
+//  };
 
-ionApp.controller('AppCtrl', function($scope, $rootScope, $http, $resource, $timeout) {
-
-var timer = function() {
-    $rootScope.appLog += ".t1 ";
-    // https://gwfl-256d.restdb.io/rest/scores/5a6b9e9da07bee72000109a7?apikey=5821f61550e9b39131fe1b6f
-    // https://api.airtable.com/v0/app0hohtq4b1nM0Kb/Players/recKbHjCbXLbJuSuJ?api_key=key66fQg5IghIIQmb
-  $http.get('https://gwfl-256d.restdb.io/rest/scores/5a6b9e9da07bee72000109a7?apikey=5821f61550e9b39131fe1b6f') 
-    .success(function (jsonData) {
-      $scope.vGm = jsonData.vGMstats;
-  });
-//  $http.get('https://api.airtable.com/v0/app0hohtq4b1nM0Kb/Skins?api_key=key66fQg5IghIIQmb')
-//    .success(function (jData) {
+  $http.get('https://api.airtable.com/v0/app0hohtq4b1nM0Kb/LookItUp?api_key=key66fQg5IghIIQmb')
+    .success(function (jData) {
+  $rootScope.rawS = jData.records;
 //      $rootScope.rawS = JSON.parse(JSON.stringify(jData.records));
-//    });  // end http.get  
+    });
 
- $timeout(timer, 5000);    // 1 second delay
-};
-        
-$timeout(timer, 250);  
+})
+
+.controller('AppCtrl', function($rootScope, $scope, $http) {
+
+  //
 
 });
