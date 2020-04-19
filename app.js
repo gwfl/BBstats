@@ -31,7 +31,7 @@ ionApp.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/app/main');
 });
 
-ionApp.run( function ($rootScope, $http, $ionicPlatform) {
+ionApp.run( function ($rootScope, $http) {
 
   $rootScope.accGroup = [];  // grp00={ name: "__", isShown: false };
 //  for (hh = 0; hh < 20; hh++) {        
@@ -44,7 +44,7 @@ ionApp.run( function ($rootScope, $http, $ionicPlatform) {
 //      $rootScope.rawS = JSON.parse(JSON.stringify(jData.records));
     });
 
-})
+});
 
 ionApp.controller('AppCtrl', function($rootScope, $scope, $http) {
 
