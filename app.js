@@ -38,7 +38,7 @@ ionApp.run( function ($rootScope, $http) {
 //    $rootScope.accGroup.push(JSON.parse(JSON.stringify(tS00)));
 //  };
 
-  $http.get('https://api.airtable.com/v0/app0hohtq4b1nM0Kb/LookItUp?api_key=key66fQg5IghIIQmb')
+  $http.get('https://api.airtable.com/v0/app0hohtq4b1nM0Kb/pluART?api_key=key66fQg5IghIIQmb')
     .success(function (jData) {
   $rootScope.rawS = jData.records;
 //      $rootScope.rawS = JSON.parse(JSON.stringify(jData.records));
