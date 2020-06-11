@@ -1,43 +1,65 @@
-<ion-view view-title="LookItUp">
-
+<ion-view title="Game Stats">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
-<a target="_" href="https://airtable.com/shrMMjfn75ibr8V2g">
-    <button class="button button-stable">   <i class="icon ion-edit"></i> Edit </button> </a>
+    <button class="button button-calm">{{ vGm.vGH.pp }}</button>
+    <span class="button button-stable"> </span>
+    <button class="button button-dark">{{ vGm.vGV.pp }}</button>
   </ion-nav-buttons>
 
-<ion-header-bar class="bar-positive">
-    <h1 class="title"> </h1>
-  </ion-header-bar>
-
-  <ion-content class="has-header">
-
-<!-- div class="row-fluid">  <h4> </h4>
- rawS:: {{rawS}}
-</div -->  
-
-  <h4> </h4>
-
-<div  class="list card" ng-repeat="pp in rawS" ng-init="ppIdx = $index">
-  <div class="row">  <div class="col-40">
-<span class="button" ng-click="calcTsw()"><span class="badge badge-energized">{{pp.fields.Account}}</span>
-</span></div>
-<div class="col text-center">
-<span class="button button-small button-light"> Crypt-1: </span>
-<span class="button button-small button-stable"> {{ pp.fields.Crypt_1 }} </span>
-   <br> <br>
-<span class="button button-small button-light"> Crypt-2: </span>
-<span class="button button-small button-stable"> {{ pp.fields.Extra }} </span>
-</div></div>
-
+<ion-content class="has-header">
+    <ion-list>
+      <ion-item class="card">   
+ <h5  class="text-right"> On The Court: </h5>
+<div class="row" ng-repeat="bvP in vGm.Nu" ng-show="vGm.onc[$index]">   <div class="col-20 text-center">
+      <span class="button button-small button-calm">  {{vGm.Nm[$index]}}  {{vGm.Nu[$index]}} </span>
+<br><span class="button button-small button-light">       
+<strong> {{ vGm.pp[$index] }} </strong>   </span>
+<br><br>
+  </div>
+   <div class="col text-center">
+<div class="row-fluid">
+<span class="button button-small button-light">       
+pf: {{ vGm.pf[$index] }}  &nbsp; tov: {{ vGm.tov[$index] }} 
+  <br> 2p:  {{vGm.y2p[$index]}}/{{vGm.y2p[$index] + vGm.x2p[$index]}} [{{ vGm.rrfg[$index] }}%]
+    &nbsp;&nbsp; 3p: {{ vGm.y3p[$index] }}/{{vGm.y3p[$index] + vGm.x3p[$index] }} [{{ vGm.rr3p[$index] }}%]
+    &nbsp;&nbsp; ft: {{ vGm.yft[$index] }}/{{vGm.yft[$index] + vGm.xft[$index] }} [{{ vGm.rrft[$index] }}%] 
+    <br>ast: {{ vGm.ast[$index] }} &nbsp;stl: {{ vGm.stl[$index] }}
+    &nbsp;blk: {{ vGm.blk[$index] }}  &nbsp; d.Rb: {{ vGm.drb[$index] }}  &nbsp;o.Rb: {{ vGm.orb[$index] }} &nbsp; t.F: {{ vGm.tf[$index] }}
+  </span>
 </div>
 
-  <h4> </h4>
-
-  <div class="row-fluid"> Copyright &copy; &middot; Lee DaBord &middot; Inglewood, CA. USA
   </div>
+</div>
+      </ion-item>
+    </ion-list>
 
-</ion-content>
+    <ion-list>
+      <ion-item class="card">   
+ <h5  class="text-right"> Off The Court: </h5>
+<div class="row" ng-repeat="bvP in vGm.Nu" ng-hide="vGm.onc[$index]">   <div class="col-20 text-center">
+      <span class="button button-small button-stable">  {{vGm.Nm[$index]}}  {{vGm.Nu[$index]}} </span>
+<br><span class="button button-small button-light">       
+<strong> {{ vGm.pp[$index] }} </strong>   </span>
+<br><br>
+  </div>
+   <div class="col text-center">
+<div class="row-fluid">
+<span class="button button-small button-light">       
+pf: {{ vGm.pf[$index] }}  &nbsp; tov: {{ vGm.tov[$index] }} 
+  <br> 2p:  {{vGm.y2p[$index]}}/{{vGm.y2p[$index] + vGm.x2p[$index]}} [{{ vGm.rrfg[$index] }}%]
+    &nbsp;&nbsp; 3p: {{ vGm.y3p[$index] }}/{{vGm.y3p[$index] + vGm.x3p[$index] }} [{{ vGm.rr3p[$index] }}%]
+    &nbsp;&nbsp; ft: {{ vGm.yft[$index] }}/{{vGm.yft[$index] + vGm.xft[$index] }} [{{ vGm.rrft[$index] }}%] 
+    <br>ast: {{ vGm.ast[$index] }} &nbsp;stl: {{ vGm.stl[$index] }}
+    &nbsp;blk: {{ vGm.blk[$index] }}  &nbsp; d.Rb: {{ vGm.drb[$index] }}  &nbsp;o.Rb: {{ vGm.orb[$index] }} &nbsp; t.F: {{ vGm.tf[$index] }}
+  </span>
+</div>
+
+  </div>
+</div>
+      </ion-item>
+    </ion-list>
+   
+  </ion-content>
 </ion-view>
